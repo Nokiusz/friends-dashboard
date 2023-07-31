@@ -1,6 +1,6 @@
 import { config as dotenvConfig } from 'dotenv';
 import { init } from './utils/init';
-
+import './db'
 dotenvConfig();
 
 const _PORT_ = process.env.PORT || 3001;
