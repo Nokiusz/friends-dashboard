@@ -1,10 +1,11 @@
 import mongoose, { Schema as Model } from 'mongoose';
 
 interface User {
-    id: string;
-    email: string;
-    accessToken: string;
-    refreshToken: string;
+  id: string;
+  email: string;
+  avatar: string;
+  accessToken: string;
+  refreshToken: string;
 }
 
 const UserModel = new Model<User>({
@@ -18,6 +19,10 @@ const UserModel = new Model<User>({
     required: true,
     unique: true,
   },
+  avatar: {
+    type: mongoose.SchemaTypes.String,
+    required: false,
+  },
   accessToken: {
     type: mongoose.SchemaTypes.String,
     required: true,
@@ -27,6 +32,5 @@ const UserModel = new Model<User>({
     required: true,
   },
 });
-
 
 export default mongoose.model('users', UserModel);

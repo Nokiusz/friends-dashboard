@@ -3,6 +3,20 @@ import { Profile, Strategy } from 'passport-discord';
 import { VerifyCallback } from 'passport-oauth2';
 import { User } from '../db/models';
 
+passport.serializeUser((user: any, done) => {
+  return done(null, user.id);
+});
+
+passport.deserializeUser(async (id: string, done) => {
+  try {
+    const user = await User.findById(id);
+    return user ? done(null, user) : done(null, null);
+  } catch (error) {
+    console.error(error);
+    done(error, null);
+  }
+});
+
 passport.use(
   new Strategy(
     {
@@ -22,13 +36,12 @@ passport.use(
       profile: Profile,
       done: VerifyCallback
     ) => {
-      console.log(accessToken, refreshToken);
       console.log(profile);
-      const { id, email } = profile;
+      const { id, email, avatar } = profile;
 
       try {
         const user = await User.findOneAndUpdate(
-          { id, email },
+          { id, email, avatar },
           { accessToken, refreshToken },
           { new: true }
         );
@@ -38,6 +51,7 @@ passport.use(
         const newUser = await User.create({
           id,
           email,
+          avatar,
           accessToken,
           refreshToken,
         });
@@ -51,5 +65,3 @@ passport.use(
     }
   )
 );
-
-//https://discord.com/api/oauth2/authorize?client_id=1133707894655832125&permissions=51200&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fapi%2Fauth%2Fdiscord%2Fredirect&response_type=code&scope=bot%20identify%20guilds%20gdm.join%20email%20relationships.read%20dm_channels.read
