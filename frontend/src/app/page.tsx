@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Layout, theme } from 'antd';
+import { Layout } from 'antd';
 
 const { Content } = Layout;
 
