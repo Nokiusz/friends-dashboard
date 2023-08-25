@@ -2,6 +2,7 @@ import mongoose, { Schema as Model } from 'mongoose';
 
 interface User {
   id: string;
+  discordId: string;
   email: string;
   avatar: string;
   accessToken: string;
@@ -9,7 +10,7 @@ interface User {
 }
 
 const UserModel = new Model<User>({
-  id: {
+  discordId: {
     type: mongoose.SchemaTypes.String,
     required: true,
     unique: true,

@@ -37,11 +37,11 @@ passport.use(
       done: VerifyCallback
     ) => {
       console.log(profile);
-      const { id, email, avatar } = profile;
+      const { id: discordId, email, avatar } = profile;
 
       try {
         const user = await User.findOneAndUpdate(
-          { id, email, avatar },
+          { discordId, email, avatar },
           { accessToken, refreshToken },
           { new: true }
         );
@@ -49,7 +49,7 @@ passport.use(
         if (user) return done(null, user);
 
         const newUser = await User.create({
-          id,
+          discordId,
           email,
           avatar,
           accessToken,
