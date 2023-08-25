@@ -4,6 +4,8 @@ import cors from 'cors';
 import session from 'express-session';
 import passport from 'passport';
 import { config as dotenvConfig } from 'dotenv';
+import store from 'connect-mongo';
+
 dotenvConfig();
 require('../strategies/discord');
 
@@ -27,6 +29,9 @@ export function init(): Express {
       cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7,
       },
+      store: store.create({
+        mongoUrl: process.env.MONGODOB_CONNECTION_STRING,
+      }),
     })
   );
 
