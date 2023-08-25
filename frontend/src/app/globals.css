@@ -9,7 +9,7 @@ body,
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 body,
@@ -35,4 +35,124 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  max-height: 80vh;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.calendar-friends-container {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+
+.calendar-friends {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-friends-avatars {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin-right: 8px;
+  /* Adjust this width as needed */
+}
+
+.calendar-friend-avatar {
+  border: 1px solid blue;
+  min-width: 51px;
+  min-height: 51px;
+  margin: 2px 0;
+}
+
+.calendar-friend {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 2px 0;
+}
+
+.date-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin: 0 10px; */
+  min-width: 51px;
+  width: 51px;
+  max-width: 51px;
+  height: 51px;
+  border: 1px solid red;
+}
+
+.date-items {
+  display: flex;
+  flex-direction: row;
+  transform: translateX(51px);
+  margin-left: 8px;
+}
+
+.calendar-cell {
+  min-width: 51px;
+  width: 51px;
+  max-width: 51px;
+  height: 51px;
+  border: 1px solid purple;
+}
+
+.date-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin: 0 10px; */
+  min-width: 51px;
+  width: 51px;
+  max-width: 51px;
+  border: 1px solid green;
+}
+
+.day-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 51px;
+  min-height: 51px;
+}
+
+.holiday {
+  background-color: #ff4d4f;
+  color: white;
+}
+
+.weekend {
+  background-color: #9254de;
+  color: white;
+}
+
+.busy {
+  background-color: #ff7a45;
+  color: white;
+}
+
+.free {
+  background-color: #52c41a;
+  color: white;
+}
+
+.day-number {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.day-name {
+  font-size: 14px;
 }
