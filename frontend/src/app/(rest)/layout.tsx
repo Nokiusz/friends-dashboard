@@ -2,7 +2,7 @@ import React from 'react';
 import { Inter } from 'next/font/google';
 import StyledComponentsRegistry from '@/lib/AntdRegistry';
 import AppShell from '@/components/AppShell';
-import './globals.css';
+import '../globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 

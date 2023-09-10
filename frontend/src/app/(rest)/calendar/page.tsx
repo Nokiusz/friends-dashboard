@@ -4,7 +4,7 @@ import { Layout, Tooltip } from 'antd';
 import { getHolidayOnDate, isHoliday, isWeekend } from 'poland-public-holidays';
 import { ITEM_WIDTH } from '@/utils/constants';
 import Image from 'next/image';
-import friendlist from '@/mocks/friendList';
+import friendlist from '@/mocks/friendsList';
 
 const { Content } = Layout;
 

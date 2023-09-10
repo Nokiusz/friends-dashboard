@@ -14,7 +14,7 @@ const HomePage = () => {
         background: '#fff',
       }}
     >
-      <main>Test</main>
+      <main>main</main>
     </Content>
   );
 };

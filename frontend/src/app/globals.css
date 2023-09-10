@@ -156,3 +156,9 @@ img {
 .day-name {
   font-size: 14px;
 }
+
+.login-button.ant-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
